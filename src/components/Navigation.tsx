@@ -13,6 +13,7 @@ export default function Navigation() {
     { name: 'Norfolk Team', href: '/team' },
     { name: 'Calendar', href: '/calendar' },
     { name: 'Previous Winners', href: '/winners' },
+    { name: 'Admin', href: '/admin' },
   ]
 
   return (
