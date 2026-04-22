@@ -32,6 +32,12 @@ export interface Event {
 // LATEST UPDATES - Edit these to update homepage
 export const latestUpdates: LatestUpdate[] = [
   {
+    date: '22nd April',
+    title: 'Website Live!',
+    link: '/',
+    description: 'Norfolk Carpet Bowls website is now live and ready for updates'
+  },
+  {
     date: '21st September',
     title: 'Norfolk 4s',
     link: '/competitions',
