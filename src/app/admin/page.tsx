@@ -162,13 +162,15 @@ export default function AdminDashboard() {
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8">
-          <h1 className="text-2xl font-bold text-center text-gray-900 mb-6">Admin Login</h1>
-          <p className="text-center text-gray-600 mb-6">Norfolk Carpet Bowls Admin Access</p>
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
+        <div className="max-w-md w-full bg-white rounded-xl shadow-2xl p-8 border border-blue-200">
+          <div className="text-center mb-8">
+            <h1 className="text-3xl font-bold text-gray-900 mb-3">Admin Login</h1>
+            <p className="text-gray-800 font-medium">Norfolk Carpet Bowls Admin Access</p>
+          </div>
           <form onSubmit={handleLogin}>
-            <div className="mb-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
+            <div className="mb-6">
+              <label className="block text-gray-900 text-sm font-bold mb-2" htmlFor="password">
                 Admin Password
               </label>
               <input
@@ -176,24 +178,26 @@ export default function AdminDashboard() {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-500"
                 placeholder="Enter admin password"
               />
             </div>
             {message && (
-              <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-md text-sm">
+              <div className="mb-4 p-3 bg-red-100 text-red-800 rounded-md text-sm font-medium border border-red-200">
                 {message}
               </div>
             )}
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors font-medium"
+              className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors font-semibold text-lg shadow-md hover:shadow-lg"
             >
               Login to Admin
             </button>
           </form>
-          <div className="mt-6 text-center text-sm text-gray-500">
-            <p>Authorized users: norfolkcarpetbowls@gmail.com, Frosty18924@gmail.com</p>
+          <div className="mt-6 text-center text-sm text-gray-700 bg-blue-50 rounded-lg p-3 border border-blue-200">
+            <p className="font-medium">Authorized users:</p>
+            <p className="text-gray-600">norfolkcarpetbowls@gmail.com</p>
+            <p className="text-gray-600">Frosty18924@gmail.com</p>
           </div>
         </div>
       </div>
@@ -201,18 +205,18 @@ export default function AdminDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
+        <div className="bg-white rounded-xl shadow-xl p-8 mb-8 border border-gray-200">
           <div className="flex justify-between items-center">
             <div>
               <h1 className="text-3xl font-bold text-gray-900 mb-2">Norfolk Carpet Bowls Admin</h1>
-              <p className="text-gray-700 font-medium">Direct content management - Edit, Add, Delete in real-time</p>
+              <p className="text-gray-800 font-medium">Direct content management - Edit, Add, Delete in real-time</p>
             </div>
             <button
               onClick={deployChanges}
               disabled={isLoading}
-              className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors disabled:bg-gray-400 font-medium"
+              className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors disabled:bg-gray-400 font-semibold shadow-md hover:shadow-lg"
             >
               {isLoading ? 'Deploying...' : 'Deploy Changes'}
             </button>
@@ -226,17 +230,17 @@ export default function AdminDashboard() {
         )}
 
         {/* Tab Navigation */}
-        <div className="bg-white rounded-lg shadow-lg mb-8">
-          <div className="border-b border-gray-200">
+        <div className="bg-white rounded-xl shadow-xl mb-8 border border-gray-200">
+          <div className="border-b border-gray-300">
             <nav className="flex -mb-px">
               {['updates', 'winners', 'events', 'contacts'].map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
-                  className={`py-3 px-6 border-b-2 font-semibold text-sm ${
+                  className={`py-4 px-8 border-b-2 font-bold text-sm transition-all ${
                     activeTab === tab
-                      ? 'border-blue-500 text-blue-700 bg-blue-50'
-                      : 'border-transparent text-gray-700 hover:text-gray-900 hover:border-gray-300 hover:bg-gray-50'
+                      ? 'border-blue-600 text-blue-800 bg-blue-100'
+                      : 'border-transparent text-gray-800 hover:text-gray-900 hover:border-gray-400 hover:bg-gray-100'
                   }`}
                 >
                   {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -247,15 +251,15 @@ export default function AdminDashboard() {
         </div>
 
         {/* Tab Content */}
-        <div className="bg-white rounded-lg shadow-lg p-6">
+        <div className="bg-white rounded-xl shadow-xl p-8 border border-gray-200">
           {/* Latest Updates Tab */}
           {activeTab === 'updates' && (
             <div>
-              <div className="flex justify-between items-center mb-6">
+              <div className="flex justify-between items-center mb-8">
                 <h2 className="text-2xl font-bold text-gray-900">Latest Updates</h2>
                 <button
                   onClick={() => setActiveTab('add-update')}
-                  className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"
+                  className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold shadow-md hover:shadow-lg"
                 >
                   Add New Update
                 </button>
@@ -265,33 +269,33 @@ export default function AdminDashboard() {
                 {latestUpdates.map((update, index) => (
                   <div key={index} className="border border-gray-300 rounded-lg p-4 bg-gray-50">
                     <div className="grid md:grid-cols-2 gap-4">
-                      <div className="space-y-3">
+                      <div className="space-y-4">
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">Date</label>
+                          <label className="block text-sm font-bold text-gray-900 mb-2">Date</label>
                           <input
                             type="text"
                             value={update.date}
                             onChange={(e) => updateLatestUpdate(index, 'date', e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-4 py-3 border border-gray-400 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-600"
                             placeholder="Date"
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">Title</label>
+                          <label className="block text-sm font-bold text-gray-900 mb-2">Title</label>
                           <input
                             type="text"
                             value={update.title}
                             onChange={(e) => updateLatestUpdate(index, 'title', e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-4 py-3 border border-gray-400 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-600"
                             placeholder="Title"
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">Link</label>
+                          <label className="block text-sm font-bold text-gray-900 mb-2">Link</label>
                           <select
                             value={update.link}
                             onChange={(e) => updateLatestUpdate(index, 'link', e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-4 py-3 border border-gray-400 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900"
                           >
                             <option value="/">Home</option>
                             <option value="/competitions">Competitions</option>
@@ -302,12 +306,12 @@ export default function AdminDashboard() {
                           </select>
                         </div>
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                          <label className="block text-sm font-bold text-gray-900 mb-2">Description</label>
                           <textarea
                             value={update.description}
                             onChange={(e) => updateLatestUpdate(index, 'description', e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            rows={2}
+                            className="w-full px-4 py-3 border border-gray-400 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-600"
+                            rows={3}
                             placeholder="Description"
                           />
                         </div>
@@ -315,7 +319,7 @@ export default function AdminDashboard() {
                       <div className="flex items-center justify-center">
                         <button
                           onClick={() => deleteLatestUpdate(index)}
-                          className="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition-colors"
+                          className="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors font-semibold shadow-md hover:shadow-lg"
                         >
                           Delete
                         </button>
@@ -326,49 +330,61 @@ export default function AdminDashboard() {
               </div>
 
               {/* Add New Update Form */}
-              <div className="mt-6 border-2 border-dashed border-gray-300 rounded-lg p-4">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Add New Update</h3>
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="space-y-3">
-                    <input
-                      type="text"
-                      value={newUpdate.date}
-                      onChange={(e) => setNewUpdate({...newUpdate, date: e.target.value})}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                      placeholder="Date (e.g., 15th October)"
-                    />
-                    <input
-                      type="text"
-                      value={newUpdate.title}
-                      onChange={(e) => setNewUpdate({...newUpdate, title: e.target.value})}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                      placeholder="Title"
-                    />
-                    <select
-                      value={newUpdate.link}
-                      onChange={(e) => setNewUpdate({...newUpdate, link: e.target.value})}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                    >
-                      <option value="">Select page</option>
-                      <option value="/">Home</option>
-                      <option value="/competitions">Competitions</option>
-                      <option value="/team">Team</option>
-                      <option value="/calendar">Calendar</option>
-                      <option value="/events">Events</option>
-                      <option value="/winners">Winners</option>
-                    </select>
-                    <textarea
-                      value={newUpdate.description}
-                      onChange={(e) => setNewUpdate({...newUpdate, description: e.target.value})}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                      rows={2}
-                      placeholder="Description"
-                    />
+              <div className="mt-8 border-2 border-dashed border-blue-400 rounded-xl p-6 bg-blue-50">
+                <h3 className="text-xl font-bold text-gray-900 mb-6">Add New Update</h3>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-4">
+                    <div>
+                      <label className="block text-sm font-bold text-gray-900 mb-2">Date</label>
+                      <input
+                        type="text"
+                        value={newUpdate.date}
+                        onChange={(e) => setNewUpdate({...newUpdate, date: e.target.value})}
+                        className="w-full px-4 py-3 border border-gray-400 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-600"
+                        placeholder="Date (e.g., 15th October)"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-bold text-gray-900 mb-2">Title</label>
+                      <input
+                        type="text"
+                        value={newUpdate.title}
+                        onChange={(e) => setNewUpdate({...newUpdate, title: e.target.value})}
+                        className="w-full px-4 py-3 border border-gray-400 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-600"
+                        placeholder="Title"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-bold text-gray-900 mb-2">Link</label>
+                      <select
+                        value={newUpdate.link}
+                        onChange={(e) => setNewUpdate({...newUpdate, link: e.target.value})}
+                        className="w-full px-4 py-3 border border-gray-400 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900"
+                      >
+                        <option value="">Select page</option>
+                        <option value="/">Home</option>
+                        <option value="/competitions">Competitions</option>
+                        <option value="/team">Team</option>
+                        <option value="/calendar">Calendar</option>
+                        <option value="/events">Events</option>
+                        <option value="/winners">Winners</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-bold text-gray-900 mb-2">Description</label>
+                      <textarea
+                        value={newUpdate.description}
+                        onChange={(e) => setNewUpdate({...newUpdate, description: e.target.value})}
+                        className="w-full px-4 py-3 border border-gray-400 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-600"
+                        rows={3}
+                        placeholder="Description"
+                      />
+                    </div>
                   </div>
                   <div className="flex items-center justify-center">
                     <button
                       onClick={addLatestUpdate}
-                      className="bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700 transition-colors"
+                      className="bg-green-600 text-white px-8 py-4 rounded-lg hover:bg-green-700 transition-colors font-bold text-lg shadow-md hover:shadow-lg"
                     >
                       Add Update
                     </button>
