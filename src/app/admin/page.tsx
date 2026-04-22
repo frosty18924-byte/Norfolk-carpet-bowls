@@ -216,7 +216,7 @@ export default function AdminDashboard() {
             <button
               onClick={deployChanges}
               disabled={isLoading}
-              className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors disabled:bg-gray-400 font-semibold shadow-md hover:shadow-lg"
+              className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors disabled:bg-gray-400 font-semibold shadow-md hover:shadow-lg"
             >
               {isLoading ? 'Deploying...' : 'Deploy Changes'}
             </button>
@@ -384,7 +384,7 @@ export default function AdminDashboard() {
                   <div className="flex items-center justify-center">
                     <button
                       onClick={addLatestUpdate}
-                      className="bg-green-600 text-white px-8 py-4 rounded-lg hover:bg-green-700 transition-colors font-bold text-lg shadow-md hover:shadow-lg"
+                      className="bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors font-bold text-lg shadow-md hover:shadow-lg"
                     >
                       Add Update
                     </button>
@@ -614,46 +614,46 @@ export default function AdminDashboard() {
               </div>
 
               {/* Add New Event Form */}
-              <div className="mt-6 border-2 border-dashed border-gray-300 rounded-lg p-4 bg-blue-50">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Add New Event</h3>
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="space-y-3">
+              <div className="mt-8 border-2 border-dashed border-blue-400 rounded-xl p-6 bg-blue-50">
+                <h3 className="text-xl font-bold text-gray-900 mb-6">Add New Event</h3>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Date</label>
+                      <label className="block text-sm font-bold text-gray-900 mb-2">Date</label>
                       <input
                         type="date"
                         value={newEvent.date}
                         onChange={(e) => setNewEvent({...newEvent, date: e.target.value})}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-3 border border-gray-400 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Event Title</label>
+                      <label className="block text-sm font-bold text-gray-900 mb-2">Event Title</label>
                       <input
                         type="text"
                         value={newEvent.title}
                         onChange={(e) => setNewEvent({...newEvent, title: e.target.value})}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-3 border border-gray-400 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-600"
                         placeholder="Event Title"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Location</label>
+                      <label className="block text-sm font-bold text-gray-900 mb-2">Location</label>
                       <input
                         type="text"
                         value={newEvent.location}
                         onChange={(e) => setNewEvent({...newEvent, location: e.target.value})}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-3 border border-gray-400 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-600"
                         placeholder="Location"
                       />
                     </div>
                     <div className="grid grid-cols-2 gap-2">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Type</label>
+                        <label className="block text-sm font-bold text-gray-900 mb-2">Type</label>
                         <select
                           value={newEvent.type}
                           onChange={(e) => setNewEvent({...newEvent, type: e.target.value})}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                          className="w-full px-4 py-3 border border-gray-400 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900"
                         >
                           <option value="County Competition">County Competition</option>
                           <option value="Team Event">Team Event</option>
@@ -662,11 +662,11 @@ export default function AdminDashboard() {
                         </select>
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Status</label>
+                        <label className="block text-sm font-bold text-gray-900 mb-2">Status</label>
                         <select
                           value={newEvent.status}
                           onChange={(e) => setNewEvent({...newEvent, status: e.target.value})}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                          className="w-full px-4 py-3 border border-gray-400 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900"
                         >
                           <option value="Upcoming">Upcoming</option>
                           <option value="Completed">Completed</option>
@@ -678,7 +678,7 @@ export default function AdminDashboard() {
                   <div className="flex items-center justify-center">
                     <button
                       onClick={addEvent}
-                      className="bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700 transition-colors"
+                      className="bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors font-bold text-lg shadow-md hover:shadow-lg"
                     >
                       Add Event
                     </button>
@@ -707,32 +707,32 @@ export default function AdminDashboard() {
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="space-y-3">
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                          <label className="block text-sm font-bold text-gray-900 mb-2">Name</label>
                           <input
                             type="text"
                             value={contact.name}
                             onChange={(e) => updateContact(index, 'name', e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-4 py-3 border border-gray-400 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-600"
                             placeholder="Name"
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">Role</label>
+                          <label className="block text-sm font-bold text-gray-900 mb-2">Role</label>
                           <input
                             type="text"
                             value={contact.role}
                             onChange={(e) => updateContact(index, 'role', e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-4 py-3 border border-gray-400 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-600"
                             placeholder="Role"
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                          <label className="block text-sm font-bold text-gray-900 mb-2">Email</label>
                           <input
                             type="email"
                             value={contact.email}
                             onChange={(e) => updateContact(index, 'email', e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-4 py-3 border border-gray-400 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-600"
                             placeholder="Email"
                           />
                         </div>
@@ -740,7 +740,7 @@ export default function AdminDashboard() {
                       <div className="flex items-center justify-center">
                         <button
                           onClick={() => deleteContact(index)}
-                          className="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition-colors"
+                          className="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors font-semibold shadow-md hover:shadow-lg"
                         >
                           Delete
                         </button>
@@ -751,37 +751,37 @@ export default function AdminDashboard() {
               </div>
 
               {/* Add New Contact Form */}
-              <div className="mt-6 border-2 border-dashed border-gray-300 rounded-lg p-4 bg-blue-50">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Add New Contact</h3>
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="space-y-3">
+              <div className="mt-8 border-2 border-dashed border-blue-400 rounded-xl p-6 bg-blue-50">
+                <h3 className="text-xl font-bold text-gray-900 mb-6">Add New Contact</h3>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                      <label className="block text-sm font-bold text-gray-900 mb-2">Name</label>
                       <input
                         type="text"
                         value={newContact.name}
                         onChange={(e) => setNewContact({...newContact, name: e.target.value})}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-3 border border-gray-400 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-600"
                         placeholder="Name"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Role</label>
+                      <label className="block text-sm font-bold text-gray-900 mb-2">Role</label>
                       <input
                         type="text"
                         value={newContact.role}
                         onChange={(e) => setNewContact({...newContact, role: e.target.value})}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-3 border border-gray-400 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-600"
                         placeholder="Role"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                      <label className="block text-sm font-bold text-gray-900 mb-2">Email</label>
                       <input
                         type="email"
                         value={newContact.email}
                         onChange={(e) => setNewContact({...newContact, email: e.target.value})}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-3 border border-gray-400 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-600"
                         placeholder="Email"
                       />
                     </div>
@@ -789,7 +789,7 @@ export default function AdminDashboard() {
                   <div className="flex items-center justify-center">
                     <button
                       onClick={addContact}
-                      className="bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700 transition-colors"
+                      className="bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors font-bold text-lg shadow-md hover:shadow-lg"
                     >
                       Add Contact
                     </button>

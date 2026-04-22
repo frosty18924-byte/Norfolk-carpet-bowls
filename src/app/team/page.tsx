@@ -28,10 +28,10 @@ export default function Team() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <section className="bg-green-800 text-white py-12">
+      <section className="bg-blue-800 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold mb-4">Norfolk County Team</h1>
-          <p className="text-xl text-green-100">
+          <p className="text-xl text-blue-100">
             Representing Norfolk in regional and national competitions
           </p>
         </div>
@@ -40,9 +40,9 @@ export default function Team() {
       {/* Join the Team */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-green-700 to-green-900 rounded-lg p-8 text-white text-center">
+          <div className="bg-gradient-to-r from-blue-700 to-blue-900 rounded-lg p-8 text-white text-center">
             <h2 className="text-3xl font-bold mb-4">Want to Join the Team?</h2>
-            <p className="text-xl mb-8 text-green-100">
+            <p className="text-xl mb-8 text-blue-100">
               Norfolk are looking for players to join the county team.
             </p>
             <p className="text-lg mb-8">
@@ -105,7 +105,7 @@ export default function Team() {
               <div key={index} className="bg-gray-50 rounded-lg p-6 hover:shadow-md transition-shadow">
                 <div className="flex items-start">
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center">
+                    <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
                       <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
@@ -114,7 +114,7 @@ export default function Team() {
                   <div className="ml-4">
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">{competition.name}</h3>
                     <p className="text-gray-600 mb-2">{competition.description}</p>
-                    <span className="inline-block px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">
+                    <span className="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">
                       {competition.level}
                     </span>
                   </div>
@@ -128,26 +128,26 @@ export default function Team() {
       {/* Team Requirements */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-green-50 rounded-lg p-8">
-            <h2 className="text-2xl font-bold text-green-800 mb-6">Team Requirements & Information</h2>
+          <div className="bg-blue-50 rounded-lg p-8">
+            <h2 className="text-2xl font-bold text-blue-800 mb-6">Team Requirements & Information</h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <h3 className="font-semibold text-green-800 mb-3">Eligibility</h3>
+                <h3 className="font-semibold text-blue-800 mb-3">Eligibility</h3>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-start">
-                    <svg className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     Must be a resident of Norfolk
                   </li>
                   <li className="flex items-start">
-                    <svg className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     Member of a Norfolk carpet bowls club
                   </li>
                   <li className="flex items-start">
-                    <svg className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     Regular participation in club competitions
@@ -155,22 +155,22 @@ export default function Team() {
                 </ul>
               </div>
               <div>
-                <h3 className="font-semibold text-green-800 mb-3">What to Expect</h3>
+                <h3 className="font-semibold text-blue-800 mb-3">What to Expect</h3>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-start">
-                    <svg className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     Regular training sessions
                   </li>
                   <li className="flex items-start">
-                    <svg className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     Competitive matches against other counties
                   </li>
                   <li className="flex items-start">
-                    <svg className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     Opportunity to represent Norfolk at national level
