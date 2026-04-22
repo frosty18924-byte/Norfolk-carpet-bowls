@@ -393,37 +393,49 @@ export default function AdminDashboard() {
               
               <div className="space-y-4">
                 {competitionWinners.map((winner, index) => (
-                  <div key={index} className="border border-gray-200 rounded-lg p-4">
+                  <div key={index} className="border border-gray-300 rounded-lg p-4 bg-gray-50">
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="space-y-3">
-                        <input
-                          type="text"
-                          value={winner.year}
-                          onChange={(e) => updateWinner(index, 'year', e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                          placeholder="Year"
-                        />
-                        <input
-                          type="text"
-                          value={winner.event}
-                          onChange={(e) => updateWinner(index, 'event', e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                          placeholder="Event"
-                        />
-                        <input
-                          type="text"
-                          value={winner.winner}
-                          onChange={(e) => updateWinner(index, 'winner', e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                          placeholder="Winner"
-                        />
-                        <input
-                          type="text"
-                          value={winner.runnerUp || ''}
-                          onChange={(e) => updateWinner(index, 'runnerUp', e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                          placeholder="Runner-up (optional)"
-                        />
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-1">Year</label>
+                          <input
+                            type="text"
+                            value={winner.year}
+                            onChange={(e) => updateWinner(index, 'year', e.target.value)}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="Year"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-1">Event</label>
+                          <input
+                            type="text"
+                            value={winner.event}
+                            onChange={(e) => updateWinner(index, 'event', e.target.value)}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="Event"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-1">Winner</label>
+                          <input
+                            type="text"
+                            value={winner.winner}
+                            onChange={(e) => updateWinner(index, 'winner', e.target.value)}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="Winner"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-1">Runner-up (optional)</label>
+                          <input
+                            type="text"
+                            value={winner.runnerUp || ''}
+                            onChange={(e) => updateWinner(index, 'runnerUp', e.target.value)}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="Runner-up"
+                          />
+                        </div>
                       </div>
                       <div className="flex items-center justify-center">
                         <button
@@ -439,38 +451,50 @@ export default function AdminDashboard() {
               </div>
 
               {/* Add New Winner Form */}
-              <div className="mt-6 border-2 border-dashed border-gray-300 rounded-lg p-4">
+              <div className="mt-6 border-2 border-dashed border-gray-300 rounded-lg p-4 bg-blue-50">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Add New Winner</h3>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-3">
-                    <input
-                      type="text"
-                      value={newWinner.year}
-                      onChange={(e) => setNewWinner({...newWinner, year: e.target.value})}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                      placeholder="Year (e.g., 2025)"
-                    />
-                    <input
-                      type="text"
-                      value={newWinner.event}
-                      onChange={(e) => setNewWinner({...newWinner, event: e.target.value})}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                      placeholder="Event (e.g., Norfolk Singles)"
-                    />
-                    <input
-                      type="text"
-                      value={newWinner.winner}
-                      onChange={(e) => setNewWinner({...newWinner, winner: e.target.value})}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                      placeholder="Winner"
-                    />
-                    <input
-                      type="text"
-                      value={newWinner.runnerUp}
-                      onChange={(e) => setNewWinner({...newWinner, runnerUp: e.target.value})}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                      placeholder="Runner-up (optional)"
-                    />
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Year</label>
+                      <input
+                        type="text"
+                        value={newWinner.year}
+                        onChange={(e) => setNewWinner({...newWinner, year: e.target.value})}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Year (e.g., 2025)"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Event</label>
+                      <input
+                        type="text"
+                        value={newWinner.event}
+                        onChange={(e) => setNewWinner({...newWinner, event: e.target.value})}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Event (e.g., Norfolk Singles)"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Winner</label>
+                      <input
+                        type="text"
+                        value={newWinner.winner}
+                        onChange={(e) => setNewWinner({...newWinner, winner: e.target.value})}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Winner"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Runner-up (optional)</label>
+                      <input
+                        type="text"
+                        value={newWinner.runnerUp}
+                        onChange={(e) => setNewWinner({...newWinner, runnerUp: e.target.value})}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Runner-up"
+                      />
+                    </div>
                   </div>
                   <div className="flex items-center justify-center">
                     <button
@@ -500,49 +524,64 @@ export default function AdminDashboard() {
               
               <div className="space-y-4">
                 {calendarEvents.map((event, index) => (
-                  <div key={index} className="border border-gray-200 rounded-lg p-4">
+                  <div key={index} className="border border-gray-300 rounded-lg p-4 bg-gray-50">
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="space-y-3">
-                        <input
-                          type="date"
-                          value={event.date}
-                          onChange={(e) => updateEvent(index, 'date', e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                        />
-                        <input
-                          type="text"
-                          value={event.title}
-                          onChange={(e) => updateEvent(index, 'title', e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                          placeholder="Event Title"
-                        />
-                        <input
-                          type="text"
-                          value={event.location}
-                          onChange={(e) => updateEvent(index, 'location', e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                          placeholder="Location"
-                        />
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-1">Date</label>
+                          <input
+                            type="date"
+                            value={event.date}
+                            onChange={(e) => updateEvent(index, 'date', e.target.value)}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-1">Event Title</label>
+                          <input
+                            type="text"
+                            value={event.title}
+                            onChange={(e) => updateEvent(index, 'title', e.target.value)}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="Event Title"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-1">Location</label>
+                          <input
+                            type="text"
+                            value={event.location}
+                            onChange={(e) => updateEvent(index, 'location', e.target.value)}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="Location"
+                          />
+                        </div>
                         <div className="grid grid-cols-2 gap-2">
-                          <select
-                            value={event.type}
-                            onChange={(e) => updateEvent(index, 'type', e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                          >
-                            <option value="County Competition">County Competition</option>
-                            <option value="Team Event">Team Event</option>
-                            <option value="Regional Competition">Regional Competition</option>
-                            <option value="National Competition">National Competition</option>
-                          </select>
-                          <select
-                            value={event.status}
-                            onChange={(e) => updateEvent(index, 'status', e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                          >
-                            <option value="Upcoming">Upcoming</option>
-                            <option value="Completed">Completed</option>
-                            <option value="Cancelled">Cancelled</option>
-                          </select>
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Type</label>
+                            <select
+                              value={event.type}
+                              onChange={(e) => updateEvent(index, 'type', e.target.value)}
+                              className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            >
+                              <option value="County Competition">County Competition</option>
+                              <option value="Team Event">Team Event</option>
+                              <option value="Regional Competition">Regional Competition</option>
+                              <option value="National Competition">National Competition</option>
+                            </select>
+                          </div>
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Status</label>
+                            <select
+                              value={event.status}
+                              onChange={(e) => updateEvent(index, 'status', e.target.value)}
+                              className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            >
+                              <option value="Upcoming">Upcoming</option>
+                              <option value="Completed">Completed</option>
+                              <option value="Cancelled">Cancelled</option>
+                            </select>
+                          </div>
                         </div>
                       </div>
                       <div className="flex items-center justify-center">
@@ -559,50 +598,65 @@ export default function AdminDashboard() {
               </div>
 
               {/* Add New Event Form */}
-              <div className="mt-6 border-2 border-dashed border-gray-300 rounded-lg p-4">
+              <div className="mt-6 border-2 border-dashed border-gray-300 rounded-lg p-4 bg-blue-50">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Add New Event</h3>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-3">
-                    <input
-                      type="date"
-                      value={newEvent.date}
-                      onChange={(e) => setNewEvent({...newEvent, date: e.target.value})}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                    />
-                    <input
-                      type="text"
-                      value={newEvent.title}
-                      onChange={(e) => setNewEvent({...newEvent, title: e.target.value})}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                      placeholder="Event Title"
-                    />
-                    <input
-                      type="text"
-                      value={newEvent.location}
-                      onChange={(e) => setNewEvent({...newEvent, location: e.target.value})}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                      placeholder="Location"
-                    />
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Date</label>
+                      <input
+                        type="date"
+                        value={newEvent.date}
+                        onChange={(e) => setNewEvent({...newEvent, date: e.target.value})}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Event Title</label>
+                      <input
+                        type="text"
+                        value={newEvent.title}
+                        onChange={(e) => setNewEvent({...newEvent, title: e.target.value})}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Event Title"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Location</label>
+                      <input
+                        type="text"
+                        value={newEvent.location}
+                        onChange={(e) => setNewEvent({...newEvent, location: e.target.value})}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Location"
+                      />
+                    </div>
                     <div className="grid grid-cols-2 gap-2">
-                      <select
-                        value={newEvent.type}
-                        onChange={(e) => setNewEvent({...newEvent, type: e.target.value})}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                      >
-                        <option value="County Competition">County Competition</option>
-                        <option value="Team Event">Team Event</option>
-                        <option value="Regional Competition">Regional Competition</option>
-                        <option value="National Competition">National Competition</option>
-                      </select>
-                      <select
-                        value={newEvent.status}
-                        onChange={(e) => setNewEvent({...newEvent, status: e.target.value})}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                      >
-                        <option value="Upcoming">Upcoming</option>
-                        <option value="Completed">Completed</option>
-                        <option value="Cancelled">Cancelled</option>
-                      </select>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Type</label>
+                        <select
+                          value={newEvent.type}
+                          onChange={(e) => setNewEvent({...newEvent, type: e.target.value})}
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        >
+                          <option value="County Competition">County Competition</option>
+                          <option value="Team Event">Team Event</option>
+                          <option value="Regional Competition">Regional Competition</option>
+                          <option value="National Competition">National Competition</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Status</label>
+                        <select
+                          value={newEvent.status}
+                          onChange={(e) => setNewEvent({...newEvent, status: e.target.value})}
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        >
+                          <option value="Upcoming">Upcoming</option>
+                          <option value="Completed">Completed</option>
+                          <option value="Cancelled">Cancelled</option>
+                        </select>
+                      </div>
                     </div>
                   </div>
                   <div className="flex items-center justify-center">
@@ -633,30 +687,39 @@ export default function AdminDashboard() {
               
               <div className="space-y-4">
                 {teamContacts.map((contact, index) => (
-                  <div key={index} className="border border-gray-200 rounded-lg p-4">
+                  <div key={index} className="border border-gray-300 rounded-lg p-4 bg-gray-50">
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="space-y-3">
-                        <input
-                          type="text"
-                          value={contact.name}
-                          onChange={(e) => updateContact(index, 'name', e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                          placeholder="Name"
-                        />
-                        <input
-                          type="text"
-                          value={contact.role}
-                          onChange={(e) => updateContact(index, 'role', e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                          placeholder="Role"
-                        />
-                        <input
-                          type="email"
-                          value={contact.email}
-                          onChange={(e) => updateContact(index, 'email', e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                          placeholder="Email"
-                        />
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                          <input
+                            type="text"
+                            value={contact.name}
+                            onChange={(e) => updateContact(index, 'name', e.target.value)}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="Name"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-1">Role</label>
+                          <input
+                            type="text"
+                            value={contact.role}
+                            onChange={(e) => updateContact(index, 'role', e.target.value)}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="Role"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                          <input
+                            type="email"
+                            value={contact.email}
+                            onChange={(e) => updateContact(index, 'email', e.target.value)}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="Email"
+                          />
+                        </div>
                       </div>
                       <div className="flex items-center justify-center">
                         <button
@@ -672,31 +735,40 @@ export default function AdminDashboard() {
               </div>
 
               {/* Add New Contact Form */}
-              <div className="mt-6 border-2 border-dashed border-gray-300 rounded-lg p-4">
+              <div className="mt-6 border-2 border-dashed border-gray-300 rounded-lg p-4 bg-blue-50">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Add New Contact</h3>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-3">
-                    <input
-                      type="text"
-                      value={newContact.name}
-                      onChange={(e) => setNewContact({...newContact, name: e.target.value})}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                      placeholder="Name"
-                    />
-                    <input
-                      type="text"
-                      value={newContact.role}
-                      onChange={(e) => setNewContact({...newContact, role: e.target.value})}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                      placeholder="Role"
-                    />
-                    <input
-                      type="email"
-                      value={newContact.email}
-                      onChange={(e) => setNewContact({...newContact, email: e.target.value})}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                      placeholder="Email"
-                    />
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                      <input
+                        type="text"
+                        value={newContact.name}
+                        onChange={(e) => setNewContact({...newContact, name: e.target.value})}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Name"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Role</label>
+                      <input
+                        type="text"
+                        value={newContact.role}
+                        onChange={(e) => setNewContact({...newContact, role: e.target.value})}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Role"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                      <input
+                        type="email"
+                        value={newContact.email}
+                        onChange={(e) => setNewContact({...newContact, email: e.target.value})}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Email"
+                      />
+                    </div>
                   </div>
                   <div className="flex items-center justify-center">
                     <button
