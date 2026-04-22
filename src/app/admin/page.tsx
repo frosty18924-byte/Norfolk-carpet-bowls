@@ -3,18 +3,20 @@
 import { useState } from 'react'
 
 export default function AdminDashboard() {
-  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [activeTab, setActiveTab] = useState('updates')
   const [message, setMessage] = useState('')
   const [isLoading, setIsLoading] = useState(false)
 
-  // Authorized emails
+  // Authorized emails (for reference)
   const authorizedEmails = [
-    'Norfolkcarpetbowls19@gmail.com',
-    'matt@yourdomain.com', // Add your email here
-    'gerald@yourdomain.com', // Add other authorized emails
+    'norfolkcarpetbowls@gmail.com',
+    'Frosty18924@gmail.com'
   ]
+
+  // Admin password (change this to your preferred password)
+  const adminPassword = 'norfolk2024!'
 
   // Live editable content
   const [latestUpdates, setLatestUpdates] = useState([
@@ -52,11 +54,11 @@ export default function AdminDashboard() {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault()
-    if (authorizedEmails.includes(email)) {
+    if (password === adminPassword) {
       setIsAuthenticated(true)
       showMessage('Welcome to Norfolk Carpet Bowls Admin!')
     } else {
-      showMessage('Access denied. Please use an authorized email.')
+      showMessage('Access denied. Please use the correct password.')
     }
   }
 
@@ -161,20 +163,21 @@ export default function AdminDashboard() {
   if (!isAuthenticated) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="max-w-md w-full bg-white rounded-lg shadow-md p-8">
+        <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8">
           <h1 className="text-2xl font-bold text-center text-gray-900 mb-6">Admin Login</h1>
+          <p className="text-center text-gray-600 mb-6">Norfolk Carpet Bowls Admin Access</p>
           <form onSubmit={handleLogin}>
             <div className="mb-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
-                Email Address
+              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
+                Admin Password
               </label>
               <input
-                id="email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                id="password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Enter your authorized email"
+                placeholder="Enter admin password"
               />
             </div>
             {message && (
@@ -184,11 +187,14 @@ export default function AdminDashboard() {
             )}
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors"
+              className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors font-medium"
             >
-              Login
+              Login to Admin
             </button>
           </form>
+          <div className="mt-6 text-center text-sm text-gray-500">
+            <p>Authorized users: norfolkcarpetbowls@gmail.com, Frosty18924@gmail.com</p>
+          </div>
         </div>
       </div>
     )
@@ -201,12 +207,12 @@ export default function AdminDashboard() {
           <div className="flex justify-between items-center">
             <div>
               <h1 className="text-3xl font-bold text-gray-900 mb-2">Norfolk Carpet Bowls Admin</h1>
-              <p className="text-gray-600">Direct content management - Edit, Add, Delete in real-time</p>
+              <p className="text-gray-700 font-medium">Direct content management - Edit, Add, Delete in real-time</p>
             </div>
             <button
               onClick={deployChanges}
               disabled={isLoading}
-              className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors disabled:bg-gray-400"
+              className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors disabled:bg-gray-400 font-medium"
             >
               {isLoading ? 'Deploying...' : 'Deploy Changes'}
             </button>
@@ -227,10 +233,10 @@ export default function AdminDashboard() {
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
-                  className={`py-3 px-6 border-b-2 font-medium text-sm ${
+                  className={`py-3 px-6 border-b-2 font-semibold text-sm ${
                     activeTab === tab
-                      ? 'border-blue-500 text-blue-600'
-                      : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                      ? 'border-blue-500 text-blue-700 bg-blue-50'
+                      : 'border-transparent text-gray-700 hover:text-gray-900 hover:border-gray-300 hover:bg-gray-50'
                   }`}
                 >
                   {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -257,42 +263,54 @@ export default function AdminDashboard() {
               
               <div className="space-y-4">
                 {latestUpdates.map((update, index) => (
-                  <div key={index} className="border border-gray-200 rounded-lg p-4">
+                  <div key={index} className="border border-gray-300 rounded-lg p-4 bg-gray-50">
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="space-y-3">
-                        <input
-                          type="text"
-                          value={update.date}
-                          onChange={(e) => updateLatestUpdate(index, 'date', e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                          placeholder="Date"
-                        />
-                        <input
-                          type="text"
-                          value={update.title}
-                          onChange={(e) => updateLatestUpdate(index, 'title', e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                          placeholder="Title"
-                        />
-                        <select
-                          value={update.link}
-                          onChange={(e) => updateLatestUpdate(index, 'link', e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                        >
-                          <option value="/">Home</option>
-                          <option value="/competitions">Competitions</option>
-                          <option value="/team">Team</option>
-                          <option value="/calendar">Calendar</option>
-                          <option value="/events">Events</option>
-                          <option value="/winners">Winners</option>
-                        </select>
-                        <textarea
-                          value={update.description}
-                          onChange={(e) => updateLatestUpdate(index, 'description', e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                          rows={2}
-                          placeholder="Description"
-                        />
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-1">Date</label>
+                          <input
+                            type="text"
+                            value={update.date}
+                            onChange={(e) => updateLatestUpdate(index, 'date', e.target.value)}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="Date"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-1">Title</label>
+                          <input
+                            type="text"
+                            value={update.title}
+                            onChange={(e) => updateLatestUpdate(index, 'title', e.target.value)}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="Title"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-1">Link</label>
+                          <select
+                            value={update.link}
+                            onChange={(e) => updateLatestUpdate(index, 'link', e.target.value)}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                          >
+                            <option value="/">Home</option>
+                            <option value="/competitions">Competitions</option>
+                            <option value="/team">Team</option>
+                            <option value="/calendar">Calendar</option>
+                            <option value="/events">Events</option>
+                            <option value="/winners">Winners</option>
+                          </select>
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                          <textarea
+                            value={update.description}
+                            onChange={(e) => updateLatestUpdate(index, 'description', e.target.value)}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            rows={2}
+                            placeholder="Description"
+                          />
+                        </div>
                       </div>
                       <div className="flex items-center justify-center">
                         <button
